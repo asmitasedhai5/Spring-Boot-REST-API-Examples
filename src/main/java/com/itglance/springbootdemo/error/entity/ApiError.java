@@ -8,16 +8,26 @@ import org.springframework.http.HttpStatus;
 public class ApiError {
 	private HttpStatus status;
     private String message;
+    private String developerMessage;
     private List<String> errors;
  
-    public ApiError(HttpStatus status, String message, List<String> errors) {
+    public ApiError(HttpStatus status, String message, String developerMessage, List<String> errors) {
         super();
         this.setStatus(status);
         this.setMessage(message);
+        this.setDeveloperMessage(developerMessage);
         this.setErrors(errors);
     }
  
-    public ApiError(HttpStatus status, String message, String error) {
+    public String getDeveloperMessage() {
+		return developerMessage;
+	}
+
+	public void setDeveloperMessage(String developerMessage) {
+		this.developerMessage = developerMessage;
+	}
+
+	public ApiError(HttpStatus status, String message, String error) {
         super();
         this.setStatus(status);
         this.setMessage(message);
